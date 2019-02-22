@@ -22,6 +22,12 @@ function evaluateCmd(userInput) {
     case "head":
       commandLibrary.head(userInputArray.slice(1));
       break;
+    case "tail":
+      commandLibrary.tail(userInputArray.slice(1));
+      break;
+    default:
+      done("Sorry that is not a valid operation. Please choose one of following:\necho\ncat\nhead\ntail")
+      break;
   }
 }
 
@@ -42,8 +48,15 @@ const commandLibrary = {
     const fileName = fullPath[0];
     fs.readFile(fileName, "utf8", (err, data) => {
       if (err) throw err;
-      result = data.toString().split("\n")
-      result.length = 2;
+      result = data.toString().split("\n").slice(0,10).join("\n");
+      done(result);
+    });
+  },
+  "tail": function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, "utf8", (err, data) => {
+      if (err) throw err;
+      result = data.toString().split("\n").slice(-10).join("\n");
       done(result);
     });
   }

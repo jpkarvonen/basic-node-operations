@@ -19,4 +19,20 @@ repeated lines next to one another.
 Explain what the output was and why the specific data was outputted.
 
 I entered `sort command.js | uniq` which output all the unique lines in command.js.
-The reason for this is explained at the end of the previous answer. 
+The reason for this is explained at the end of the previous answer.
+
+6. Given a string, reverse the order of characters in each word within a sentence
+while maintaining the original word order and whitespace and return the string.
+To improve your problem-solving experience, use the suggested functions to solve
+the problem.
+
+
+function reverseString(string) {
+  result = []
+  string = string.split(" ");
+  string.forEach((element) => {
+    element = element.split("").reverse().join("");
+    result.push(element);
+  });
+  return result.join(" ");
+}
