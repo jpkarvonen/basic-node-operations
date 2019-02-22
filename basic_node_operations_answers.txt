@@ -1,0 +1,22 @@
+1. Run the commands sort, wc and uniq on the commands.js file.
+Explain how they work and what the output was.
+
+- sort: sorts the contents of its input. It can take options for
+how to sort, but by default it sorts by number then alphabetically
+(lowercase before uppercase) in ascending order. It output the lines
+of command.js in this way.
+
+- wc: prints the number of lines, words, and characters of the input. The output
+for  `wc command.js` is '41     101     957 command.js'
+
+- uniq: can remove duplicates , show a count of occurrences, show only repeated
+lines, ignore certain characters and compare on specific fields. Unless repeated
+lines are adjacent, uniq will simply output the contents of its input, which is
+what it did with command.js. For this reason uniq is often used with sort to bring
+repeated lines next to one another.
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js.
+Explain what the output was and why the specific data was outputted.
+
+I entered `sort command.js | uniq` which output all the unique lines in command.js.
+The reason for this is explained at the end of the previous answer. 
